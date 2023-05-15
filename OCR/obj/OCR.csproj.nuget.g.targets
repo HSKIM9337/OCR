@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)tesseract\5.2.0\build\Tesseract.targets" Condition="Exists('$(NuGetPackageRoot)tesseract\5.2.0\build\Tesseract.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.drawing.common\7.0.0\buildTransitive\netcoreapp2.0\System.Drawing.Common.targets" Condition="Exists('$(NuGetPackageRoot)system.drawing.common\7.0.0\buildTransitive\netcoreapp2.0\System.Drawing.Common.targets')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.pdf.ocr.wpf\21.2.4\build\net46\Syncfusion.Pdf.OCR.Wpf.targets" Condition="Exists('$(NuGetPackageRoot)syncfusion.pdf.ocr.wpf\21.2.4\build\net46\Syncfusion.Pdf.OCR.Wpf.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.dependencyinjection.abstractions\7.0.0\buildTransitive\netcoreapp2.0\Microsoft.Extensions.DependencyInjection.Abstractions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.dependencyinjection.abstractions\7.0.0\buildTransitive\netcoreapp2.0\Microsoft.Extensions.DependencyInjection.Abstractions.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.dependencyinjection\7.0.0\buildTransitive\netcoreapp2.0\Microsoft.Extensions.DependencyInjection.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.dependencyinjection\7.0.0\buildTransitive\netcoreapp2.0\Microsoft.Extensions.DependencyInjection.targets')" />
+    <Import Project="$(NuGetPackageRoot)communitytoolkit.mvvm\8.1.0\buildTransitive\netstandard2.1\CommunityToolkit.Mvvm.targets" Condition="Exists('$(NuGetPackageRoot)communitytoolkit.mvvm\8.1.0\buildTransitive\netstandard2.1\CommunityToolkit.Mvvm.targets')" />
+  </ImportGroup>
+</Project>
