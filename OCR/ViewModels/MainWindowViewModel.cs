@@ -27,9 +27,13 @@ namespace OCR.ViewModels
             if (dialog.ShowDialog() == true)
             {
                 ImgPath = dialog.FileName;
-
+                MessageBox.Show(ImgPath);
             }
-            MessageBox.Show(ImgPath);
+            else
+            {
+                MessageBox.Show("취소하셨습니다");
+            }
+
         }
 
         private void OCR()
@@ -55,6 +59,8 @@ namespace OCR.ViewModels
             request.Headers.Add("X-Naver-Client-Secret", "S2BpV7vAjq");
             request.Method = "POST";
 
+            this._ocrResult = _ocrResult.Replace("\n", "");
+
             byte[] bytearry = Encoding.UTF8.GetBytes("source=en&target=ko&text=" + this.OcrResult);
             request.ContentType = "application/x-www-form-urlencoded";
 
@@ -69,16 +75,17 @@ namespace OCR.ViewModels
             Stream stream = response.GetResponseStream();
             StreamReader reader = new StreamReader(stream, Encoding.UTF8);
             string text = reader.ReadToEnd();
-
+            //MessageBox.Show(text);
             stream.Close();
             response.Close();
             reader.Close();
 
             JObject jObject = JObject.Parse(text);
+            //MessageBox.Show(this.OcrResult);
 
-            this.TransalteResult =  jObject["message"]["result"]["translatedText"].ToString();
+            this.TransalteResult = jObject["message"]["result"]["translatedText"].ToString();
 
-            MessageBox.Show(TransalteResult);
+            //MessageBox.Show(TransalteResult);
         }
 
 
